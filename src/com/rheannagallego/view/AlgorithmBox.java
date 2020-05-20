@@ -1,8 +1,6 @@
 package com.rheannagallego.view;
 
-import com.rheannagallego.algorithms.AlgorithmAnimation;
-import com.rheannagallego.algorithms.BubbleSortAnimation;
-import com.rheannagallego.algorithms.QuickSortAnimation;
+import com.rheannagallego.algorithms.*;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
@@ -36,7 +34,7 @@ public class AlgorithmBox extends VBox {
            case "Bubble Sort":
                return new BubbleSortAnimation();
            case "Selection Sort":
-               break;
+               return new SelectionSortAnimation();
            case "Insertion Sort":
                break;
            case "Shell Sort":
