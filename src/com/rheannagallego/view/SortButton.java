@@ -1,9 +1,7 @@
 package com.rheannagallego.view;
 
 import com.rheannagallego.algorithms.AlgorithmAnimation;
-import com.rheannagallego.algorithms.QuickSortAnimation;
 import javafx.scene.control.Button;
-import java.util.List;
 
 public class SortButton extends Button {
 
@@ -23,7 +21,7 @@ public class SortButton extends Button {
 
                 algorithm = AlgorithmBox.getAlgorithm();
                 if(algorithm != null) {
-                    algorithm.sort(arr, 0, arr.length);
+                    algorithm.startSort(arr);
                     algorithm.playAnimation();
                 }
             }

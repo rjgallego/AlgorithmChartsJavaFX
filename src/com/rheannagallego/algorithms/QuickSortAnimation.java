@@ -8,10 +8,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-
 public class QuickSortAnimation extends AlgorithmAnimation {
 
     @Override
+    public void startSort(int[] arr) {
+        sort(arr, 0, arr.length);
+    }
+
     public void sort(int[] arr, int start, int end) {
         if (end - start < 2) {
             return;

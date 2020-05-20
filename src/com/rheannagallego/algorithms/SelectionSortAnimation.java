@@ -7,13 +7,12 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 public class SelectionSortAnimation extends AlgorithmAnimation{
-    int[] spOrder;
-    int spSize;
-    private int largestIdx;
 
     @Override
-    public void sort(int[] arr, int start, int end) {
+    public void startSort(int[] arr) {
         spSize = arr.length;
+        int largestIdx;
+
         for(int i = arr.length - 1; i > 0; i--){
             largestIdx = i;
             for(int j = 0; j < i; j++){
@@ -53,24 +52,8 @@ public class SelectionSortAnimation extends AlgorithmAnimation{
             sq.getChildren().add(tt2);
 
             swap(spOrder, toLoc, fromLoc);
-
-//            System.out.print("{ ");
-//            for(int j = 0; j < spOrder.length; j++){
-//                System.out.print(spOrder[j] + " ");
-//            }
-//            System.out.print("}");
-//            System.out.println();
         }
-
         sq.play();
-
-    }
-
-    private void initializeSPOrder(){
-        spOrder = new int[spSize];
-        for(int i = 0; i < spOrder.length; i++){
-            spOrder[i] = i;
-        }
     }
 
 }
