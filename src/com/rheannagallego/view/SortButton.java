@@ -20,6 +20,7 @@ public class SortButton extends Button {
                 arr = this.fieldBox.getEnterFieldValues();
 
                 algorithm = AlgorithmBox.getAlgorithm();
+                algorithm.setSPSize(arr.length);
                 if(algorithm != null) {
                     algorithm.startSort(arr);
                     algorithm.playAnimation();
