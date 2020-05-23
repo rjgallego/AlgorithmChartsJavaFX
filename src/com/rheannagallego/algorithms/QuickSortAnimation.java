@@ -34,16 +34,16 @@ public class QuickSortAnimation extends AlgorithmAnimation {
             while (i < j && arr[--j] >= pivot ) { continue; }
             if (i < j) {
                 arr[i] = arr[j];
-                addTransition(i, j, arr[j]);
+                addTransition(i, j);
             }
             while (i < j && arr[++i] <= pivot) { continue; }
             if (i < j) {
                 arr[j] = arr[i];
-                addTransition(j, i, arr[i]);
+                addTransition(j, i);
             }
         }
         arr[i] = pivot;
-        addTransition(i, start, arr[i]);
+        addTransition(i, start);
         return i;
     }
 
