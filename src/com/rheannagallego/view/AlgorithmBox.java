@@ -38,7 +38,7 @@ public class AlgorithmBox extends VBox {
            case "Insertion Sort":
                return new InsertionSortAnimation();
            case "Shell Sort":
-               break;
+               return new ShellSortAnimation();
            case "Merge Sort":
                break;
            case "Quick Sort":
