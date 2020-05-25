@@ -33,4 +33,13 @@ public class ShellSortAnimation extends AlgorithmAnimation {
         }
         playSequentialTransition();
     }
+
+    @Override
+    public void resetTransitions() {
+        for(int i = transitions.size() - 1; i >= 0; i--) {
+            animateIterative(true, i);
+        }
+        playSequentialTransition();
+        initializeSPOrder();
+    }
 }

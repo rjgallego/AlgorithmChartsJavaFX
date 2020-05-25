@@ -31,4 +31,15 @@ public class BubbleSortAnimation extends AlgorithmAnimation{
         playSequentialTransition();
     }
 
+    @Override
+    public void resetTransitions() {
+        System.out.println(transitions.size());
+        for(int i = transitions.size() - 1; i >= 0; i--) {
+            //animateIterative(false, i);
+            System.out.println("Move bar " + transitions.get(i)[0] + " to position " + transitions.get(i)[1]);
+        }
+        playSequentialTransition();
+        initializeSPOrder();
+    }
+
 }

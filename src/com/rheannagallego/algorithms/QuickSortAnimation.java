@@ -81,4 +81,9 @@ public class QuickSortAnimation extends AlgorithmAnimation {
         sq.play();
     }
 
+    @Override
+    public void resetTransitions() {
+
+    }
+
 }
