@@ -10,6 +10,11 @@
     -fx-min-height: 30;
 }
 
+.buttonbox{
+    -fx-spacing: 5;
+    -fx-min-height: 30;
+}
+
 .vbox{
     -fx-border-width: 0;
     -fx-alignment: center;

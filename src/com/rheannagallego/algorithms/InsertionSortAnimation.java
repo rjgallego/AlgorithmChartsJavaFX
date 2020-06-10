@@ -37,12 +37,4 @@ public class InsertionSortAnimation extends AlgorithmAnimation {
 
     }
 
-    @Override
-    public void resetTransitions() {
-        for(int i = transitions.size() - 1; i >= 0; i--) {
-            animateIterative(false, i);
-        }
-        playSequentialTransition();
-        initializeSPOrder();
-    }
 }

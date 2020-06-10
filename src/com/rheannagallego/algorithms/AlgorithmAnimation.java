@@ -28,7 +28,7 @@ public abstract class AlgorithmAnimation {
         transitions.add(new Integer[]{i, j});
     }
 
-    final void initializeSPOrder(){
+    void initializeSPOrder(){
         spOrder = new int[spSize];
         for(int i = 0; i < spOrder.length; i++){
             spOrder[i] = i;
@@ -88,5 +88,4 @@ public abstract class AlgorithmAnimation {
 
     public abstract void startSort(int[] arr);
     public abstract void playAnimation();
-    public abstract void resetTransitions();
 }
