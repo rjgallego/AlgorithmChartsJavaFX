@@ -44,7 +44,7 @@ public class AlgorithmBox extends VBox {
            case "Quick Sort":
                return new QuickSortAnimation();
            case "Counting Sort":
-               break;
+               return new CountingSortAnimation();
            case "Radix Sort":
                break;
            default:
