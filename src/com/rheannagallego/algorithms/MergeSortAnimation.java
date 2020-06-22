@@ -114,15 +114,15 @@ public class MergeSortAnimation extends AlgorithmAnimation {
             int idx = getBarLoc(fromLoc);
             StackPane movedBar = (StackPane) MainWindow.chartPane.getChildren().get(idx);
 
-            addTrTransition(-variance, movedBar);
+            addTranslateTransition(-variance, movedBar, 1);
             stackPanes[idx][1] = toLoc;
         }
     }
 
-    private void addTrTransition(int variance, StackPane bar){
-        TranslateTransition tt = new TranslateTransition(Duration.millis(1000), bar);
-        tt.setByX(25 * variance);
-        tt.setAutoReverse(false);
-        sq.getChildren().add(tt);
-    }
+//    private void addTrTransition(int variance, StackPane bar){
+//        TranslateTransition tt = new TranslateTransition(Duration.millis(1000), bar);
+//        tt.setByX(25 * variance);
+//        tt.setAutoReverse(false);
+//        sq.getChildren().add(tt);
+//    }
 }
