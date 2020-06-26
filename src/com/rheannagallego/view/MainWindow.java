@@ -7,7 +7,7 @@ public class MainWindow extends BorderPane {
     public static ChartPane chartPane = new ChartPane();
     private FieldBox fieldBox = new FieldBox();
     private ButtonBox buttonBox = new ButtonBox(fieldBox);
-    private AlgorithmBox algorithmBox = new AlgorithmBox();
+    private AlgorithmBox algorithmBox = new AlgorithmBox(fieldBox);
 
     public MainWindow(){
         this.getStyleClass().add("pane");

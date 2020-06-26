@@ -58,7 +58,6 @@ public class CountingSortAnimation extends AlgorithmAnimation {
 
         StackPane movedBar = (StackPane) MainWindow.chartPane.getChildren().get(fromLoc);
 //        ((Rectangle)movedBar.getChildren().get(0)).setFill(Color.NAVY);
-        System.out.println("Move bar value " + currentTransition[1] + " from " + fromLoc + " to location " + toLoc );
         addTranslateTransition(variance, movedBar, 1);
     }
 }

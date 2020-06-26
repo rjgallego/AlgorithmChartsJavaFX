@@ -1,14 +1,13 @@
 package com.rheannagallego.view;
 
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 public class FieldBox extends HBox {
-    private Label label = new Label("Enter Values Between 0-50:");
+    private static Label label = new Label("Enter Values 1-50: ");
 
     public FieldBox(){
-        this.label.setStyle("-fx-font-weight: bold");
+        label.setStyle("-fx-font-weight: bold");
         this.getStyleClass().add("hbox");
         this.getChildren().add(label);
 
@@ -32,14 +31,6 @@ public class FieldBox extends HBox {
             arr[i-1] = Integer.parseInt(currentField.getText());
         }
 
-//        for(Node cell : this.getChildren()){
-//            if(cell instanceof EnterField){
-//                if(((EnterField) cell).getText().equals("")) break;
-//
-//                arr[i] = Integer.parseInt(((EnterField) cell).getText());
-//                i++;
-//            }
-//        }
         return arr;
     }
 
@@ -59,12 +50,10 @@ public class FieldBox extends HBox {
             if(currentField.getText().equals("")) return size;
             size++;
         }
-//        for(Node cell : this.getChildren()){
-//            if(cell instanceof EnterField){
-//                if(((EnterField) cell).getText().equals("")) return size;
-//                size++;
-//            }
-//        }
         return size;
+    }
+
+    public void setLabel(String s){
+        label.setText(s);
     }
 }

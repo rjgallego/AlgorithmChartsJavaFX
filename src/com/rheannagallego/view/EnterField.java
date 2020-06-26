@@ -1,7 +1,10 @@
 package com.rheannagallego.view;
 
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+
+import java.text.NumberFormat;
 
 public class EnterField extends TextField {
 
@@ -45,18 +48,36 @@ public class EnterField extends TextField {
 
     private void updateChartBar(){
         String text = this.getText();
-        if(!text.equals("")){
-            int textValue = Integer.parseInt(text);
-            if(textValue >= 0 && textValue <= 50) {
-                this.setStyle("-fx-text-fill: black");
-                this.setTooltip(null);
-                MainWindow.chartPane.updateBar(Integer.parseInt(this.getText()), fieldBox.getChildren().indexOf(this)-1);
-            }else{
-                Tooltip tooltip = new Tooltip("Value must be\nbetween 0-50");
-                this.setStyle("-fx-text-fill: red");
-                this.setTooltip(tooltip);
+        try {
+            if (!text.equals("")) {
+                int textValue = Integer.parseInt(text);
 
+                if (AlgorithmBox.getSelectedIndices().equals("Radix Sort")) {
+                    if (textValue >= 10 && textValue <= 50) {
+                        this.setStyle("-fx-text-fill: black");
+                        this.setTooltip(null);
+                        MainWindow.chartPane.updateBar(Integer.parseInt(this.getText()), fieldBox.getChildren().indexOf(this) - 1);
+                    } else {
+                        Tooltip tooltip = new Tooltip("Value must be\nbetween 10-50");
+                        this.setStyle("-fx-text-fill: red");
+                        this.setTooltip(tooltip);
+                    }
+                } else {
+                    if (textValue >= 0 && textValue <= 50) {
+                        this.setStyle("-fx-text-fill: black");
+                        this.setTooltip(null);
+                        MainWindow.chartPane.updateBar(Integer.parseInt(this.getText()), fieldBox.getChildren().indexOf(this) - 1);
+                    } else {
+                        Tooltip tooltip = new Tooltip("Value must be\nbetween 0-50");
+                        this.setStyle("-fx-text-fill: red");
+                        this.setTooltip(tooltip);
+                    }
+                }
             }
+        }catch(NumberFormatException e){
+            Tooltip tooltip = new Tooltip("Value must be\nan integer");
+            this.setStyle("-fx-text-fill: red");
+            this.setTooltip(tooltip);
         }
     }
 
