@@ -29,7 +29,6 @@ public class RadixSortAnimation extends AlgorithmAnimation{
             for (int k = n - 1; k >= 0; k--) {
                 tmp[--countingArray[getDigit(arr[k], j)]] = arr[k];
                 addTransition(countingArray[getDigit(arr[k], j)], arr[k]);
-                System.out.println("Move bar " + arr[k] + " to loc " + countingArray[getDigit(arr[k], j)]);
             }
             System.arraycopy(tmp, 0, arr, 0, arr.length);
         }
@@ -64,7 +63,6 @@ public class RadixSortAnimation extends AlgorithmAnimation{
         int fromLoc = 0;
         Integer[] currentTransition = transitions.get(transitionIdx);
         toLoc = currentTransition[0];
-//        fromLoc = getBarIndex(currentTransition[1]);
         for(int[] i : stackPanes){
             if(i[0] == currentTransition[1]){
                 fromLoc = i[1];
@@ -72,17 +70,10 @@ public class RadixSortAnimation extends AlgorithmAnimation{
                 break;
             }
         }
-//        System.out.println("ToLoc: " + toLoc + ", FromLoc: " + fromLoc);
         variance = toLoc - fromLoc;
 
         StackPane movedBar = (StackPane) MainWindow.chartPane.getChildren().get(getBarIndex(currentTransition[1]));
         addTranslateTransition(variance, movedBar, 1);
-
-        for(int i = 0; i < stackPanes.length; i++){
-            System.out.print("{" + stackPanes[i][0] + ", " + stackPanes[i][1] + "} ");
-        }
-        System.out.println();
-
     }
 
 

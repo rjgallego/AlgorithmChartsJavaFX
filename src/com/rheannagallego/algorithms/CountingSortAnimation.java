@@ -1,10 +1,7 @@
 package com.rheannagallego.algorithms;
 
 import com.rheannagallego.view.MainWindow;
-import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class CountingSortAnimation extends AlgorithmAnimation {
@@ -21,7 +18,6 @@ public class CountingSortAnimation extends AlgorithmAnimation {
                 for(int j = 0; j < currentCount; j++){
                     arr[index] = i+1;
                     addTransition(index++, i+1);
-//                    System.out.println("Move bar value " + (i+1) + " to location " + (index-1));
                 }
             }
         }
@@ -57,7 +53,6 @@ public class CountingSortAnimation extends AlgorithmAnimation {
         variance = toLoc - fromLoc;
 
         StackPane movedBar = (StackPane) MainWindow.chartPane.getChildren().get(fromLoc);
-//        ((Rectangle)movedBar.getChildren().get(0)).setFill(Color.NAVY);
         addTranslateTransition(variance, movedBar, 1);
     }
 }

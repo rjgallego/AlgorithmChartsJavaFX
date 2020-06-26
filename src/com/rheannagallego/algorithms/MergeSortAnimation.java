@@ -118,11 +118,4 @@ public class MergeSortAnimation extends AlgorithmAnimation {
             stackPanes[idx][1] = toLoc;
         }
     }
-
-//    private void addTrTransition(int variance, StackPane bar){
-//        TranslateTransition tt = new TranslateTransition(Duration.millis(1000), bar);
-//        tt.setByX(25 * variance);
-//        tt.setAutoReverse(false);
-//        sq.getChildren().add(tt);
-//    }
 }
