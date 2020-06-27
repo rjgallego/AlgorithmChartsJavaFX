@@ -1,7 +1,7 @@
 # JavaFX Visualization for Different Sorting Algorithms
 This project utilizes JavaFX to visualize different types of sorting algorithms using a bar chart. User can enter up to 15 values between 1-50 and chose between different algorithms to see how they differ in sorting.
 
-![](C:\Users\galle\Videos\Captures\example.mp4)
+![](example.gif)
 
 ## Available Algorithms
 * Bubble Sort
