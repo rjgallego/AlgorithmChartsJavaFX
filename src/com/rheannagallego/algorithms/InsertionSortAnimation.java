@@ -1,11 +1,5 @@
 package com.rheannagallego.algorithms;
 
-import com.rheannagallego.view.MainWindow;
-import javafx.animation.SequentialTransition;
-import javafx.animation.TranslateTransition;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
-
 public class InsertionSortAnimation extends AlgorithmAnimation {
     @Override
     public void startSort(int[] arr) {

@@ -4,16 +4,14 @@ import com.rheannagallego.view.MainWindow;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public abstract class AlgorithmAnimation {
-    List<Integer[]> transitions = new ArrayList();
+    List<Integer[]> transitions = new ArrayList<>();
     SequentialTransition sq = new SequentialTransition();
     int[] spOrder;
     int spSize;

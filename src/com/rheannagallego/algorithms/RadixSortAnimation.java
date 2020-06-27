@@ -18,8 +18,8 @@ public class RadixSortAnimation extends AlgorithmAnimation{
         int n = arr.length;
         for (int j = 1; j <= 2; j++) {
             int[] countingArray = new int[10];
-            for (int i = 0; i < arr.length; i++) {
-                countingArray[getDigit(arr[i], j)]++;
+            for (int value : arr) {
+                countingArray[getDigit(value, j)]++;
             }
             for (int i = 1; i < countingArray.length; i++) {
                 countingArray[i] += countingArray[i-1];

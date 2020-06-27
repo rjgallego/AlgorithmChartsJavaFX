@@ -1,12 +1,8 @@
 package com.rheannagallego.algorithms;
 
 import com.rheannagallego.view.MainWindow;
-import javafx.animation.TranslateTransition;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +15,7 @@ public class MergeSortAnimation extends AlgorithmAnimation {
     }
 
     private void sort(int[] arr, int start, int end){
+
         stackPanes = new int[arr.length][2];
         if(end - start < 2){
             return;
@@ -118,4 +115,5 @@ public class MergeSortAnimation extends AlgorithmAnimation {
             stackPanes[idx][1] = toLoc;
         }
     }
+
 }

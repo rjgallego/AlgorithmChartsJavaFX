@@ -1,21 +1,16 @@
 package com.rheannagallego.view;
 
 import com.rheannagallego.algorithms.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
 
 public class AlgorithmBox extends VBox {
     private static ListView<String> algorithmList = new ListView<>();
     private static String selectedIndices = "";
-    private FieldBox fieldBox;
 
     public AlgorithmBox(FieldBox fieldBox){
-        this.fieldBox = fieldBox;
 
         this.getStyleClass().add("vbox");
         algorithmList.getStyleClass().add("list-view");
@@ -23,37 +18,34 @@ public class AlgorithmBox extends VBox {
         initializeAlgorithms();
         this.getChildren().add(algorithmList);
 
-        algorithmList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                selectedIndices = newValue;
-                if(selectedIndices.equals("Radix Sort")){
-                    for(Node node : fieldBox.getChildren()){
-                        if(node instanceof EnterField) {
-                            EnterField currentField = (EnterField) node;
-                            if (!currentField.getText().isEmpty()) {
-                                int value = Integer.parseInt(currentField.getText());
-                                if (value < 10) {
-                                    Tooltip tooltip = new Tooltip("Value must be\nbetween 10-50");
-                                    currentField.setStyle("-fx-text-fill: red");
-                                    currentField.setTooltip(tooltip);
-                                }
+        algorithmList.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            selectedIndices = newValue;
+            if(selectedIndices.equals("Radix Sort")){
+                for(Node node : fieldBox.getChildren()){
+                    if(node instanceof EnterField) {
+                        EnterField currentField = (EnterField) node;
+                        if (!currentField.getText().isEmpty()) {
+                            int value = Integer.parseInt(currentField.getText());
+                            if (value < 10) {
+                                Tooltip tooltip = new Tooltip("Value must be\nbetween 10-50");
+                                currentField.setStyle("-fx-text-fill: red");
+                                currentField.setTooltip(tooltip);
                             }
                         }
                     }
-                    fieldBox.setLabel("Enter Values 10-50: ");
                 }
-                else{
-                    for(Node node : fieldBox.getChildren()){
-                        if(node instanceof EnterField) {
-                            node.setStyle("-fx-text-fill: black");
-                        }
-                    }
-                    fieldBox.setLabel("Enter Values 1-50: ");
-                }
-
-
+                fieldBox.setLabel("Enter Values 10-50: ");
             }
+            else{
+                for(Node node : fieldBox.getChildren()){
+                    if(node instanceof EnterField) {
+                        node.setStyle("-fx-text-fill: black");
+                    }
+                }
+                fieldBox.setLabel("Enter Values 1-50: ");
+            }
+
+
         });
     }
 

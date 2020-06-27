@@ -45,10 +45,10 @@
     -fx-spacing: 5;
     -fx-text-fill: black;
     -fx-font-size: 10px;
+
 }
 
 .vbox{
     -fx-min-width: 100px;
     -fx-border-color: gray;
-
 }
