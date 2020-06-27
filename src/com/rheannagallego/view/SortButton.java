@@ -20,18 +20,22 @@ public class SortButton extends Button {
         this.getStyleClass().add("Button");
 
         this.setOnAction(actionEvent -> {
-                arr = this.fieldBox.getEnterFieldValues();
-                this.setDisable(true);
+            arr = this.fieldBox.getEnterFieldValues();
 
+            try {
                 algorithm = AlgorithmBox.getAlgorithm();
                 algorithm.setSPSize(arr.length);
-                if(algorithm != null) {
-                    algorithm.startSort(arr);
-                    algorithm.playAnimation();
-                }
+                this.setDisable(true);
+
+                algorithm.startSort(arr);
+                algorithm.playAnimation();
                 this.resetButton.setDisable(false);
+            }catch(NullPointerException e){
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("You must pick an algorithm to sort");
+                a.show();
             }
-        );
+        });
     }
 
     public void setResetButton(ResetButton resetButton){
