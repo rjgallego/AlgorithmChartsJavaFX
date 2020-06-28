@@ -3,6 +3,7 @@ package com.rheannagallego.algorithms;
 import com.rheannagallego.view.MainWindow;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
@@ -67,6 +68,7 @@ public abstract class AlgorithmAnimation {
     }
 
     public void resetBars(int[] arr){
+        int currentIndex, variance;
         SequentialTransition resetTransition = new SequentialTransition();
 
         int[] sortedArray = Arrays.stream(arr).sorted().toArray();
@@ -75,7 +77,12 @@ public abstract class AlgorithmAnimation {
 
         for(int i = 0; i < arr.length; i++){
             StackPane currentPane = (StackPane) MainWindow.chartPane.getChildren().get(i);
-            int variance = i - sortedArrList.indexOf(arr[i]);
+
+            currentIndex = sortedArrList.indexOf(arr[i]);
+            variance = i - currentIndex;
+
+            sortedArrList.set(currentIndex, -1);
+
             TranslateTransition tt = new TranslateTransition(Duration.millis(1000), currentPane);
             tt.setByX(25 * variance);
             tt.setAutoReverse(false);

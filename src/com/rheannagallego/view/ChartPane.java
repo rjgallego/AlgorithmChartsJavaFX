@@ -1,7 +1,6 @@
 package com.rheannagallego.view;
 
 import javafx.geometry.Pos;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
