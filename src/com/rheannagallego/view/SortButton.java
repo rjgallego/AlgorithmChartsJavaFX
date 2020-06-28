@@ -1,8 +1,10 @@
 package com.rheannagallego.view;
 
 import com.rheannagallego.algorithms.AlgorithmAnimation;
+import com.rheannagallego.algorithms.RadixSortAnimation;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 
 public class SortButton extends Button {
 
@@ -21,19 +23,38 @@ public class SortButton extends Button {
 
         this.setOnAction(actionEvent -> {
             arr = this.fieldBox.getEnterFieldValues();
+            boolean invalidValues = false;
+            algorithm = AlgorithmBox.getAlgorithm();
 
-            try {
-                algorithm = AlgorithmBox.getAlgorithm();
-                algorithm.setSPSize(arr.length);
-                this.setDisable(true);
+            for(int i : arr){
+                if(algorithm instanceof RadixSortAnimation){
+                    if(i < 10 || i > 50){
+                        invalidValues = true;
+                    }
+                }else {
+                    if (i <= 0 || i > 50) {
+                        invalidValues = true;
+                    }
+                }
+            }
 
-                algorithm.startSort(arr);
-                algorithm.playAnimation();
-                this.resetButton.setDisable(false);
-            }catch(NullPointerException e){
+            if(invalidValues){
                 Alert a = new Alert(Alert.AlertType.ERROR);
-                a.setContentText("You must pick an algorithm to sort");
+                a.setContentText("Invalid values entered");
                 a.show();
+            }else {
+                try {
+                    algorithm.setSPSize(arr.length);
+                    this.setDisable(true);
+
+                    algorithm.startSort(arr);
+                    algorithm.playAnimation();
+                    this.resetButton.setDisable(false);
+                } catch (NullPointerException e) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("You must pick an algorithm to sort");
+                    a.show();
+                }
             }
         });
     }
