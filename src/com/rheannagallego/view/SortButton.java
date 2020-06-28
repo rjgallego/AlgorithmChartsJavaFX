@@ -4,7 +4,6 @@ import com.rheannagallego.algorithms.AlgorithmAnimation;
 import com.rheannagallego.algorithms.RadixSortAnimation;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 
 public class SortButton extends Button {
 

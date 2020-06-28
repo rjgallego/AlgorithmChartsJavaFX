@@ -1,6 +1,12 @@
 package com.rheannagallego.algorithms;
 
 public class ShellSortAnimation extends AlgorithmAnimation {
+
+    //algorithm to sort values input by user in the EnterFields
+    //specify a gap (for this algorithm, it is half the length of the array), then for each iteration
+    //use insertion sort to sort values separated by gap. With each iteration divide gap by 2 until it is 1 and run
+    //a normal insertion sort
+
     @Override
     public void startSort(int[] arr) {
         sort(arr);
@@ -17,6 +23,8 @@ public class ShellSortAnimation extends AlgorithmAnimation {
                     if (newElement < arr[j]) {
                         arr[j + gap] = arr[j];
                         arr[j] = newElement;
+
+                        //add transition to list to indicate bars being swapped & their to / from locations
                         addTransition(j + gap, j);
                     }
                 }
@@ -25,9 +33,11 @@ public class ShellSortAnimation extends AlgorithmAnimation {
         }
     }
 
+    //play the animation once the input array is sorted
     @Override
     public void playAnimation() {
         initializeSPOrder();
+        //go through transitions stored in the sort method and add a Translate Transition for each entry
         for(int i = 0; i < transitions.size(); i++) {
             animateIterative(true, i);
         }
